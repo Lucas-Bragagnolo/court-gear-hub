@@ -2,39 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* E-commerce deportivo design system - Blanco, Negro, Rojo
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
+    /* Core brand colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 0 0% 9%;
+    
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 0 0% 9%;
+    
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 9%;
+    
+    /* Primary system - Black for elegance */
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    
+    /* Secondary system - Light grays */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    
+    /* Muted system */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Accent system - Vibrant red for CTAs */
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 98%;
+    
+    /* Sport red variants */
+    --sport-red: 0 84% 60%;
+    --sport-red-dark: 0 84% 50%;
+    --sport-red-light: 0 84% 70%;
+    
+    /* Destructive system */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border and input system */
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 84% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 9%) 0%, hsl(0 0% 20%) 100%);
+    --gradient-red: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(0 84% 50%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 12px -2px hsl(0 0% 9% / 0.08);
+    --shadow-product: 0 8px 25px -5px hsl(0 0% 9% / 0.1);
+    --shadow-hero: 0 20px 40px -10px hsl(0 0% 9% / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
 
     --radius: 0.5rem;
 
@@ -101,5 +131,40 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Product card hover effects */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 2px;
   }
 }
